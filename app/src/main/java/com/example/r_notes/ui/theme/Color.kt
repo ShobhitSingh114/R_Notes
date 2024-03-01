@@ -2,10 +2,14 @@ package com.example.r_notes.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val LightSkyBlue = Color(0xFF006879)
+val OnLightSkyBlue = Color(0xFFffffff)
+val LightSkyBlueContainer = Color(0xFFaaedff)
+val OnLightSkyBlueContainer = Color(0xFF001f26)
+val LightBackground = Color(0xFFFFFFFF)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val DarkSkyBlue = Color(0xFF54d6f3)
+val OnDarkSkyBlue = Color(0xFF003640)
+val DarkSkyBlueContainer = Color(0xFF004e5c)
+val OnDarkSkyBlueContainer = Color(0xFFaaedff)
+val DarkBackground = Color(0xFF000000)
