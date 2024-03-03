@@ -1,4 +1,4 @@
-package com.example.r_notes.ui.theme
+package com.example.r_notes.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
