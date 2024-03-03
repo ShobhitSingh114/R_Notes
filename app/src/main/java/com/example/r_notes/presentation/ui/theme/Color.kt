@@ -1,4 +1,5 @@
-Notespackage com.example.r_notes.presentation.ui.theme
+//Notespackage com.example.r_notes.presentation.ui.theme
+
 
 import androidx.compose.ui.graphics.Color
 
