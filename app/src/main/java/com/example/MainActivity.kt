@@ -1,4 +1,4 @@
-package com.example.r_notes.presentation
+package com.example
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.r_notes.presentation.ui.theme.R_NotesTheme
+import com.example.ui.theme.R_NotesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

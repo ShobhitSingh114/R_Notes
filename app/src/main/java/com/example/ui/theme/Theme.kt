@@ -1,15 +1,5 @@
-package com.example.r_notes.presentation.ui.theme
+package com.example.ui.theme
 
-import DarkBackground
-import DarkSkyBlue
-import DarkSkyBlueContainer
-import LightBackground
-import LightSkyBlue
-import LightSkyBlueContainer
-import OnDarkSkyBlue
-import OnDarkSkyBlueContainer
-import OnLightSkyBlue
-import OnLightSkyBlueContainer
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -90,6 +80,7 @@ fun R_NotesTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes,
         content = content
     )
 }

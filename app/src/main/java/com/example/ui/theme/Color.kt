@@ -1,6 +1,4 @@
-//Notespackage com.example.r_notes.presentation.ui.theme
-
-
+package com.example.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val LightSkyBlue = Color(0xFF006879)
