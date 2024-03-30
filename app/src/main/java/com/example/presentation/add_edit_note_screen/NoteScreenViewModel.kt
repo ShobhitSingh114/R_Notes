@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class NoteScreenViewModel @Inject constructor(
     private val addNote: AddNote,
-    savedStateHandle: SavedStateHandle
+//    savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
     private val _noteTitle = mutableStateOf("")

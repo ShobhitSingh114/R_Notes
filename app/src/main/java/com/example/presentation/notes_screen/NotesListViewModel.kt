@@ -3,10 +3,12 @@ package com.example.presentation.notes_screen
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.domain.model.Note
 import com.example.domain.use_case.GetNotes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -39,11 +41,11 @@ class NotesListViewModel @Inject constructor(
 //        getNotesJob?.cancel()
 //        getNotesJob = getNotes().onEach {
 //        }
-        getNotes().onEach {
+        getNotes().onEach { notes ->
             _state.value = _state.value.copy(
-                notes = it
+                notes = notes
             )
-        }
+        }.launchIn(viewModelScope)
     }
 
 }

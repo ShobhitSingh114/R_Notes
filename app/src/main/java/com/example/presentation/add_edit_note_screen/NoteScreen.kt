@@ -21,10 +21,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.r_notes.R
 
 @Composable
 fun NoteScreen(
+    navController: NavController,
     viewModel: NoteScreenViewModel = hiltViewModel()
 ) {
     val titleState = viewModel.noteTitle.value
@@ -36,6 +38,7 @@ fun NoteScreen(
             FloatingActionButton(
                 onClick = {
                     viewModel.onEvent(NoteScreenEvents.SaveNoteEvent)
+                    navController.navigateUp()
                 },
                 shape = CircleShape
             ) {
