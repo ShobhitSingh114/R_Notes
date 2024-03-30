@@ -14,7 +14,7 @@
         android:theme="@style/Theme.R_Notes"
         tools:targetApi="31">
         <activity
-            android:name="com.example.MainActivity"
+            android:name="com.example.presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.R_Notes">

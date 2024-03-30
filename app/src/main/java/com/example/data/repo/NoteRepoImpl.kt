@@ -12,9 +12,9 @@ class NoteRepoImpl(
         return dao.insert(note)
     }
 
-    override suspend fun update(note: Note) {
-        return dao.update(note)
-    }
+//    override suspend fun update(note: Note) {
+//        return dao.update(note)
+//    }
 
     override suspend fun delete(note: Note) {
         return dao.delete(note)
