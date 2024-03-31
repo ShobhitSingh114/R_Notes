@@ -18,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,15 +38,22 @@ fun NotesListScreen(
             Text(
                 text = "R_Notes \uD83D\uDCDD",
                 style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.padding(start = 10.dp)
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(start = 10.dp),
+                color = MaterialTheme.colorScheme.tertiary
             )
         },
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { navController.navigate(Screen.NoteScreen.route) },
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 shape = CircleShape
             ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Add Note",
+                    tint = MaterialTheme.colorScheme.primary
+                )
             }
         }
     ) { paddingValues ->

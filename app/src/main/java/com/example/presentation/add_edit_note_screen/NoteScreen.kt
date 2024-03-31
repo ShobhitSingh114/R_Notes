@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -40,6 +41,7 @@ fun NoteScreen(
                     viewModel.onEvent(NoteScreenEvents.SaveNoteEvent)
                     navController.navigateUp()
                 },
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 shape = CircleShape
             ) {
                 Icon(painter = painterResource(id = R.drawable.save), contentDescription = "Save Icon")
