@@ -12,18 +12,22 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.r_notes.R
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun NoteScreen(
@@ -34,12 +38,31 @@ fun NoteScreen(
     val contentState = viewModel.noteContent.value
     val snackBarHostState = remember { SnackbarHostState() }
 
+    LaunchedEffect(key1 = true) {
+        viewModel.eventFlow.collectLatest { event ->
+            when(event) {
+                is NoteScreenViewModel.UiEvent.ShowSnackbar -> {
+//                    scaffoldState.snackbarHostState.showSnackbar(
+//                        message = event.message
+//                    )
+                    snackBarHostState.showSnackbar(
+                        message = event.message,
+                        duration = SnackbarDuration.Short
+                    )
+                }
+                is NoteScreenViewModel.UiEvent.SaveNote -> {
+                    navController.navigateUp()
+                }
+            }
+        }
+    }
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
                     viewModel.onEvent(NoteScreenEvents.SaveNoteEvent)
-                    navController.navigateUp()
+//                    navController.navigateUp()
                 },
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 shape = CircleShape
@@ -57,7 +80,7 @@ fun NoteScreen(
         ) {
             // Title
             TextField(
-                value = titleState,
+                value = titleState.text,
                 onValueChange = {
                     viewModel.onEvent(NoteScreenEvents.TitleChangeEvent(it))
                 },
@@ -68,7 +91,7 @@ fun NoteScreen(
             )
             Spacer(modifier = Modifier.height(16.dp))
             TextField(
-                value = contentState,
+                value = contentState.text,
                 onValueChange = {
                     viewModel.onEvent(NoteScreenEvents.ContentChangeEvent(it))
                 },

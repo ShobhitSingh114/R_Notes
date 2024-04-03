@@ -11,9 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.presentation.add_edit_note_screen.NoteScreen
 import com.example.presentation.notes_screen.NotesListScreen
 import com.example.presentation.util.Screen
@@ -39,7 +41,16 @@ class MainActivity : ComponentActivity() {
                         composable(route = Screen.NotesListScreen.route) {
                             NotesListScreen(navController)
                         }
-                        composable(route = Screen.NoteScreen.route) {
+                        composable(
+                            route = Screen.NoteScreen.route +
+                            "?noteId={noteId}",
+                            arguments = listOf (
+                                navArgument(name = "noteId") {
+                                    type = NavType.IntType
+                                    defaultValue = -1
+                                }
+                            )
+                        ) {
                             NoteScreen(navController)
                         }
                     }

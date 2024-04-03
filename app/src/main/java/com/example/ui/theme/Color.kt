@@ -52,7 +52,8 @@ val md_theme_light_scrim = Color(0xFF000000)
 // FAB Icon color
 val md_theme_dark_primary = Color(0xFFFFFFFF)
 // card background - grey
-val md_theme_dark_onPrimary = Color(0xFF353839)
+//val md_theme_dark_onPrimary = Color(0xFF353839)
+val md_theme_dark_onPrimary = Color(0xFF212124)
 val md_theme_dark_primaryContainer = Color(0xFF531BBC)
 val md_theme_dark_onPrimaryContainer = Color(0xFFE9DDFF)
 
