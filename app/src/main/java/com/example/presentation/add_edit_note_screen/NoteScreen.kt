@@ -29,6 +29,8 @@ import androidx.navigation.NavController
 import com.example.r_notes.R
 import kotlinx.coroutines.flow.collectLatest
 
+
+
 @Composable
 fun NoteScreen(
     navController: NavController,
@@ -38,24 +40,31 @@ fun NoteScreen(
     val contentState = viewModel.noteContent.value
     val snackBarHostState = remember { SnackbarHostState() }
 
+//    key1 = true parameter indicates the key used to determine when the effect should be relaunched.
+//    true ensures that the LaunchedEffect is launched once and not relaunched again, as its key is a constant value (true).
+//    This is often used when you want to execute an effect only once when the Composable is first composed,
+//    and you don't want it to be triggered again during recompositions caused by other changes.
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when(event) {
                 is NoteScreenViewModel.UiEvent.ShowSnackbar -> {
-//                    scaffoldState.snackbarHostState.showSnackbar(
-//                        message = event.message
-//                    )
                     snackBarHostState.showSnackbar(
                         message = event.message,
                         duration = SnackbarDuration.Short
                     )
                 }
                 is NoteScreenViewModel.UiEvent.SaveNote -> {
+//                    snackBarHostState.showSnackbar(
+//                        message = "Note Saved Sucessfully",
+//                        duration = SnackbarDuration.Short
+//                    )
                     navController.navigateUp()
+
                 }
             }
         }
     }
+
 
     Scaffold(
         floatingActionButton = {

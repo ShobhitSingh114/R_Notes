@@ -76,8 +76,7 @@ class NoteScreenViewModel @Inject constructor(
                             Note(
                                 title = noteTitle.value.text,
                                 content = noteContent.value.text,
-                                id = currentNoteId
-                                        ,
+                                id = currentNoteId,
                                 timestamp = System.currentTimeMillis()
                             )
                         )
