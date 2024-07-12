@@ -63,7 +63,7 @@ class NotesListViewModel @Inject constructor(
                 notes = notes
             )
         }.launchIn(viewModelScope)
-//
+
 //        getNotes().onEach { notes ->
 //            _state.value = _state.value.copy(
 //                notes = notes
